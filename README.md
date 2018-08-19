@@ -30,9 +30,9 @@ It's using postgres:10 as base image. I named it as build. The purpose of this i
 
 `RUN pgxn install plv8` compiles and installs the plv8 from source. The final binaries of plv8 are stored in respective folders in the image which I have given the name as **build** in first line of Dockerfile.
 
-Then I take an another base image as final through the line `FROM postgres:10 as final`. After doing update and upgrade and installing necessary files I did copy of compiled plv8 binaries from old image to new image. In Docker the final base image is the last base image you use. So here my final image is the image which I named as **final**. So after I copied the binaries from *build* to *final* I changed the permission of the files through linux chmod command. That is it.
+Then I take an another base image as final through the line `FROM postgres:10 as final`. After doing update and upgrade and installing necessary files I did copy of compiled plv8 binaries from old image to new image. In Docker the final base image is the last base image you use. So here my final image is the image which I named as **final**. After I copied the binaries from *build* to *final* image I changed the permissions of the files in *final* image through linux chmod command. That is it.
 
-You can create the latest extensions as above in future. **Happy coding in Docker**
+You can create the latest extensions of plv8 as above in future as and when they are released. The line ENV plv8_version=2.3.5 is written in Dockerfile but it is not used. **Happy coding in Docker**
 
 Aftern you finally create a postgresql container from above docker image you need to run following sql commands in the container to activate the Plv8 extension:
 ```
