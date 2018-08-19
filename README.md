@@ -10,6 +10,7 @@ RUN apt-get update && apt-get upgrade \
     && apt-get install -y git curl glib2.0 libc++-dev python python-pip libv8-dev postgresql-server-dev-$PG_MAJOR
 RUN pip install pgxnclient
 RUN pgxn install plv8
+
 FROM postgres:10 AS final
 RUN apt-get update && apt-get upgrade \
     && apt-get install -y libc++-dev
@@ -25,3 +26,5 @@ RUN chmod -R 644 /usr/share/postgresql/10/extension/plcoffee* /usr/share/postgre
 ```
 
 ##### Explaination of the Dockerfile
+It's using postgres:10 as base image. I named it as build. The purpose of this image is just to compile the plv8 from source and keep the respective resultant files in respective folders. While compilation several other items are also installed in this image which increases the image size. I don't want the bulky image. I only want the final plv8 binary after the compilation.
+`Run pgxn install plv8` compiles and installs the plv8 from source. The final binaries of plv8 are stored in respective folders in the image which I have given the name as *build*
