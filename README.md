@@ -24,4 +24,4 @@ RUN chmod -R 644 /usr/share/postgresql/10/extension/plcoffee* /usr/share/postgre
     && chmod 755 /usr/lib/postgresql/10/bin/pg_config
 ```
 
-#####Explaination of the Dockerfile
+##### Explaination of the Dockerfile
