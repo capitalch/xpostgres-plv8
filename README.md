@@ -40,4 +40,4 @@ create extension if not exists plv8;
 select plv8_version();
 ```
 
-The above sql commands are to be executed as SQL. I executed them in my container through pgadmin. But you free to execute those commands in any manner you want such as using psql or any other *Postgresql admin tool*.
+The above sql commands are to be executed in SQL mode. I executed them in my container through **pgadmin**. But you free to execute those commands in any manner you want such as using **psql** or any other *Postgresql admin tool*.
