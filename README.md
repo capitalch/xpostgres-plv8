@@ -34,5 +34,10 @@ Then I take an another base image as final through the line `FROM postgres:10 as
 
 You can create the latest extensions as above in future. **Happy coding in Docker**
 
+Aftern you finally create a postgresql container from above docker image you need to run following sql commands in the container to activate the Plv8 extension:
+```
+create extension if not exists plv8;
+select plv8_version();
+```
 
-
+The above sql commands are to be executed as SQL. I executed them in my container through pgadmin. But you free to execute those commands in any manner you want such as using psql or any other *Postgresql admin tool*.
